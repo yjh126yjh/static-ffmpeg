@@ -49,7 +49,8 @@ RUN apk add --no-cache $APK_OPTS \
   python3 py3-packaging \
   linux-headers \
   curl \
-  libdrm-dev
+  libdrm-dev \
+  libcaca-dev
 
 # linux-headers need by rtmpdump
 # python3 py3-packaging needed by glib
@@ -1200,6 +1201,7 @@ RUN \
   --enable-libzimg \
   --enable-libzmq \
   --enable-openssl \
+  --enable-libcaca \
   || (cat ffbuild/config.log ; false) \
   && make -j$(nproc) install
 
